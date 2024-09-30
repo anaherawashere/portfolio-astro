@@ -1,0 +1,42 @@
+---
+interface Props {
+  year?: number;
+  title: string;
+  description?: string;
+  company?: string;
+  image?: string;
+  link: string;
+  tech: string[];
+}
+
+const { title, description, image, link, tech } = Astro.props;
+---
+
+<a href={link} target="_blank">
+  <div class="flex gap-x-6 py-5 px-6 rounded-md hover:bg-yellow-400 hover:bg-opacity-10 hover:shadow-lg ease-in duration-200">
+    <div class="w-1/4">
+      <div class="shadow-xl overflow-hidden rounded-sm">
+        <img src={image} alt={title} loading="lazy" />
+      </div>
+    </div>
+    <div class="w-3/4">
+      <h3 class="mb-2 flex gap-x-2 text-lg font-semibold text-zinc-900">
+        {title}<span class=""
+        ><i class="fa-solid fa-arrow-right -rotate-45 text-sm"></i></span
+      >
+      </h3>
+      <p class="mb-4 text-sm">
+        {description}
+      </p>
+      <ul class="flex flex-wrap gap-2">
+        {
+          tech.map((el) => (
+            <li class="bg-yellow-400 bg-opacity-60 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-black rounded-full">
+              {el}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</a>
