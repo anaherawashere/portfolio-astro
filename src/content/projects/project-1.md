@@ -1,4 +1,5 @@
 ---
+year: 2024
 title: pawpals
 description: Connecting pets with local pet-friendly events.
 image: '/projects/pawpals.png'
