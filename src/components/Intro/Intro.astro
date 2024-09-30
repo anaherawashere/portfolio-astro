@@ -1,0 +1,30 @@
+---
+import SocialLinks from "../utils/ButtonGroups/SocialLinks.astro";
+import ProfileImage from "../ProfileImage.astro";
+---
+
+<div
+  class="flex flex-col justify-between gap-6 w-full py-16 top-0 max-h-screen lg:w-1/2 sticky"
+>
+  <div>
+    <ProfileImage />
+    <div class="relative w-full">
+      <h1
+        class="mt-4 text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl"
+      >
+        Anahera Foley-Paama
+      </h1>
+      <h2
+        class="mt-3 text-lg font-medium tracking-tight sm:text-xl text-zinc-900"
+      >
+        Full Stack Developer
+      </h2>
+      <p class="mt-4 max-w-xs leading-normal">
+        I build pixel-perfect, engaging, and accessible digital experiences.
+      </p>
+    </div>
+  </div>
+  <div>
+    <SocialLinks />
+  </div>
+</div>
