@@ -1,0 +1,30 @@
+---
+import SectionHeading from "../SectionHeading.astro";
+import SectionSubheading from "../SectionSubheading.astro";
+import ButtonCta from "../utils/Buttons/Button_Cta.astro";
+import CardExperience from "../utils/Cards/Card_Experience.astro";
+
+const allJobs = await Astro.glob("../../content/jobs/*.md");
+// const sortedJobs = allJobs.sort((a,b) => b - a)
+---
+
+<div id="experience">
+  <SectionHeading>Experience</SectionHeading>
+  <SectionSubheading
+    >Here are some of my recent projects. I'm always working on something new,
+    so check back often!</SectionSubheading
+  >
+  <div class="flex flex-col gap-y-3">
+    {
+      allJobs.map((job) => (
+        <CardExperience
+          date={job.frontmatter.date}
+          role={job.frontmatter.role}
+          company={job.frontmatter.company}
+          description={job.frontmatter.description}
+          href={job.frontmatter.href}
+        />
+      ))
+    }
+  </div><ButtonCta title="View Full Résumé" href="/" />
+</div>
