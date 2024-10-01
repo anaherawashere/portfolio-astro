@@ -1,10 +1,10 @@
 ---
 year: 2024
-title: pawpals
-description: Connecting pets with local pet-friendly events.
-company: Dev Academy Aotearoa
-image: '/projects/pawpals.png'
+title: Magic 8 Ball
+description: Themed magic 8 ball.
+image: '/projects/magic-8-ball.png'
 href: 'https://pawpals.pushed.nz/'
 hrefPreview: pawpals.pushed.nz
-tech: [typescript, react, tailwind, sqlite, knex.js]
+tech: [JavaScript, HTML, CSS]
+selected: false
 ---

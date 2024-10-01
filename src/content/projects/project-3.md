@@ -6,4 +6,5 @@ image: '/projects/magic-8-ball.png'
 href: 'https://pawpals.pushed.nz/'
 hrefPreview: pawpals.pushed.nz
 tech: [Astro, JavaScript, CSS]
+selected: true
 ---
