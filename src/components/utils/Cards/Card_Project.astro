@@ -13,16 +13,16 @@ const { title, description, image, link, tech } = Astro.props;
 ---
 
 <a href={link} target="_blank">
-  <div class="group flex gap-x-6 py-5 lg:px-6 rounded-md ease-in duration-100 hover:bg-purple hover:bg-opacity-10">
-    <div class="w-1/4">
+  <div class="group flex flex-col-reverse lg:flex-row gap-x-6 py-5 lg:px-6 rounded-md ease-in duration-100 hover:bg-purple hover:bg-opacity-10">
+    <div class="w-52 lg:w-1/4">
       <div class="shadow-xl overflow-hidden rounded-sm">
         <img src={image} alt={title} loading="lazy" />
       </div>
     </div>
-    <div class="w-3/4">
-      <h3 class="mb-2 flex gap-x-2 text-lg font-semibold text-heading group-hover:text-purple ease-in duration-100">
-        {title}<span class=""
-        ><i class="fa-solid fa-arrow-right -rotate-45 text-xs"></i></span
+    <div class="lg:w-3/4 xs:mb-3">
+      <h3 class="mb-2 flex gap-x-[6px] text-lg font-semibold text-heading group-hover:text-purple ease-in duration-100">
+        {title}<span
+        ><i aria-hidden="true" class="fa-solid fa-arrow-right -rotate-45 text-xs ease-in duration-100 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]"></i></span
       >
       </h3>
       <p class="mb-4 text-sm">
@@ -31,7 +31,7 @@ const { title, description, image, link, tech } = Astro.props;
       <ul class="flex flex-wrap gap-2">
         {
           tech.map((el) => (
-            <li class="bg-purple bg-opacity-30 px-3 py-1 text-xs font-normal uppercase tracking-wider text-heading rounded-full">
+            <li class="bg-purple bg-opacity-20 px-3 py-1 text-xs font-medium uppercase tracking-wider text-purple rounded-full">
               {el}
             </li>
           ))
