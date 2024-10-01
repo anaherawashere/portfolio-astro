@@ -13,14 +13,14 @@ const { title, description, image, link, tech } = Astro.props;
 ---
 
 <a href={link} target="_blank">
-  <div class="flex gap-x-6 py-5 px-6 rounded-md hover:bg-yellow-400 hover:bg-opacity-10 hover:shadow-lg ease-in duration-200">
+  <div class="group flex gap-x-6 py-5 lg:px-6 rounded-md ease-in duration-100 hover:bg-purple hover:bg-opacity-10">
     <div class="w-1/4">
       <div class="shadow-xl overflow-hidden rounded-sm">
         <img src={image} alt={title} loading="lazy" />
       </div>
     </div>
     <div class="w-3/4">
-      <h3 class="mb-2 flex gap-x-2 text-lg font-semibold text-zinc-900">
+      <h3 class="mb-2 flex gap-x-2 text-lg font-semibold text-heading group-hover:text-purple ease-in duration-100">
         {title}<span class=""
         ><i class="fa-solid fa-arrow-right -rotate-45 text-sm"></i></span
       >
@@ -31,7 +31,7 @@ const { title, description, image, link, tech } = Astro.props;
       <ul class="flex flex-wrap gap-2">
         {
           tech.map((el) => (
-            <li class="bg-yellow-400 bg-opacity-60 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-black rounded-full">
+            <li class="bg-purple bg-opacity-30 px-3 py-1 text-xs font-normal uppercase tracking-wider text-heading rounded-full">
               {el}
             </li>
           ))
