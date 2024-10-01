@@ -1,6 +1,6 @@
 ---
-import navMenu from "../collections/navMenu.json"
-import Logo from "../components/Logo.astro"
+import navMenu from "../collections/navMenu.json";
+import Logo from "../components/Logo.astro";
 ---
 
 <!-- This is an invisible div with relative position so that it takes up the height of the menu (because menu is absolute/fixed) -->
@@ -13,11 +13,11 @@ import Logo from "../components/Logo.astro"
     <div
       id="mobileMenuBackground"
       onclick="closeMobileMenu()"
-      class="fixed inset-0 z-20 hidden w-screen h-screen duration-300 ease-out bg-white/90 dark:bg-neutral-950/90"
+      class="fixed inset-0 z-20 hidden w-screen h-screen duration-300 ease-out dark:bg-neutral-950/90"
     >
     </div>
     <nav
-      class="relative z-30 flex flex-row-reverse justify-start w-full text-sm sm:justify-end text-neutral-500 dark:text-neutral-400 sm:flex-row"
+      class="relative z-30 flex flex-row-reverse justify-start w-full text-sm sm:justify-end text-body dark:text-neutral-400 sm:flex-row"
     >
       <div
         id="openMenu"
@@ -38,7 +38,7 @@ import Logo from "../components/Logo.astro"
         class="flex flex-col items-end justify-center hidden w-6 h-6 ml-4 -translate-x-1 cursor-pointer sm:hidden"
       >
         <svg
-          class="w-6 h-6 text-neutral-600 dark:text-neutral-200"
+          class="w-6 h-6 text-body dark:text-neutral-200"
           fill="none"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -49,13 +49,13 @@ import Logo from "../components/Logo.astro"
       </div>
       <div
         id="menu"
-        class="fixed top-[75px] ease-out duration-300 sm:top-0 w-full left-0 sm:py-0 pt-7 pb-4 dm:mx-0 left-0 z-40 flex-col items-end justify-start hidden w-full h-auto text-sm sm:text-base sm:h-auto sm:relative sm:flex-row sm:flex sm:text-sm sm:w-auto sm:pr-0 sm:pt-0"
+        class="fixed top-[75px] ease-out duration-300 sm:top-0 w-full left-0 sm:py-0 pt-7 pb-4 dm:mx-0 z-40 flex-col items-end justify-start hidden h-auto text-sm sm:h-auto sm:relative sm:flex-row sm:flex sm:text-sm sm:w-auto sm:pr-0 sm:pt-0"
       >
         <div
           class="absolute inset-0 top-0 right-0 block w-full h-full px-3 sm:hidden"
         >
           <div
-            class="relative w-full h-full bg-white border border-dashed border-neutral-300 dark:border-neutral-700 backdrop-blur-sm rounded-xl dark:bg-neutral-950"
+            class="relative w-full h-full border border-dashed border-purple dark:border-neutral-700 backdrop-blur-sm rounded-xl dark:bg-neutral-950"
           >
           </div>
         </div>
@@ -63,21 +63,21 @@ import Logo from "../components/Logo.astro"
           navMenu.map((menu) => {
             return (
               <a
-                href={menu.url}
-                class="relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white"
+                href={menu.href}
+                class="relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-purple dark:hover:text-white"
               >
                 {menu.name}
               </a>
-            )
+            );
           })
         }
       </div>
       <div
         id="darkToggle"
-        class="relative flex items-center pl-6 ml-4 font-medium tracking-wide cursor-pointer text-neutral-800 group dark:text-white"
+        class="relative flex items-center pl-6 ml-4 font-medium tracking-wide cursor-pointer text-body hover:text-purple group dark:text-white"
       >
         <div
-          class="absolute left-0 flex items-center justify-center w-6 h-6 overflow-hidden border-b border-transparent horizon group-hover:border-neutral-600"
+          class="absolute left-0 flex items-center justify-center w-6 h-6 overflow-hidden border-b border-transparent horizon group-hover:border-purple"
         >
           <svg
             class="absolute w-6 h-6 transition duration-700 transform ease"
