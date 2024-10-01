@@ -1,0 +1,35 @@
+---
+import ProjectRow from "./ProjectRow.astro";
+
+const allProjects = await Astro.glob("../../content/projects/*.md");
+---
+
+<div>
+  <table class="w-full">
+    <thead
+      class="sticky top-0 z-10 border-b border-zinc-300 px-6 py-5 backdrop-blur"
+    >
+      <tr>
+        <th class="py-4 pr-8 text-sm font-semibold text-zinc-900">Year</th>
+        <th class="py-4 pr-8 text-sm font-semibold text-zinc-900">Project</th>
+        <th class="hidden py-4 pr-8 text-sm font-semibold text-zinc-900">Made at</th>
+        <th class="hidden py-4 pr-8 text-sm font-semibold text-zinc-900">Built with</th
+        >
+        <th class="hidden py-4 pr-8 text-sm font-semibold text-zinc-900">Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        allProjects.map((project) => (
+          <ProjectRow
+            year={project.frontmatter.year}
+            title={project.frontmatter.title}
+            company={project.frontmatter.company}
+            tech={project.frontmatter.tech}
+            link={project.frontmatter.link}
+          />
+        ))
+      }
+    </tbody>
+  </table>
+</div>
