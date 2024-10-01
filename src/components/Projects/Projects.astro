@@ -1,12 +1,13 @@
 ---
 import SectionHeading from "../SectionHeading.astro";
 import SectionSubheading from "../SectionSubheading.astro";
+import ButtonCta from "../utils/Buttons/Button_Cta.astro";
 import Card from "../utils/Cards/Card_Project.astro";
 
 const allProjects = await Astro.glob("../../content/projects/*.md");
 ---
 
-<div>
+<div id="projects">
   <SectionHeading>Selected Projects</SectionHeading>
   <SectionSubheading
     >Here are some of my recent projects. I'm always working on something new,
@@ -24,12 +25,5 @@ const allProjects = await Astro.glob("../../content/projects/*.md");
         />
       ))
     }
-    <a
-      href="/archive"
-      class="mt-6 flex gap-x-2 hover:gap-x-3 px-6 font-semibold text-zinc-900 hover:text-yellow-800 ease-in duration-300"
-      >View Full Project Archive<span
-        ><i class="fa-solid fa-arrow-right text-sm"></i></span
-      ></a
-    >
-  </div>
+  </div><ButtonCta title="View Full Project Archive" href="/archive" />
 </div>
