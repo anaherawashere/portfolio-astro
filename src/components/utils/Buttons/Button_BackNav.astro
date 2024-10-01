@@ -1,3 +1,18 @@
-<a href="/" class="group flex gap-x-2 font-semibold text-zinc-900 hover:text-yellow-800 ease-in"
-  ><span><i class="fa-solid fa-arrow-left text-sm group-hover:-translate-x-2 ease-out duration-200"></i></span>Anahera Foley-Paama</a
+---
+interface Props {
+  href: string;
+  title: string;
+}
+
+const { href, title } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group mt-6 inline-flex w-auto gap-x-2 items-center lg:px-6 font-semibold text-heading hover:text-purple"
+  ><span aria-hidden="true"
+    ><i
+      class="fa-solid fa-angle-left text-xs ease-in duration-100 group-hover:-translate-x-[2px]"
+    ></i></span
+  >{title}</a
 >
