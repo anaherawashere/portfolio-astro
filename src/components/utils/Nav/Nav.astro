@@ -1,0 +1,57 @@
+<nav class="">
+  <ul class="flex flex-col items-baseline">
+    <li class="inline-block">
+      <a id="nav-item" href="#about" class="group flex items-center py-2 active"
+        ><span
+          id="nav-line"
+          class="nav-indicator mr-4 h-1 w-8 border-t-2 border-dotted border-body group-hover:border-purple transition-all group-hover:w-16 group-focus-visible:w-16 motion-reduce:transition-none"
+        ></span>
+        <span
+          id="nav-title"
+          class="nav-text text-xs font-normal uppercase tracking-widest text-body group-hover:text-purple group-focus-visible:text-purple"
+          >About</span
+        ></a
+      >
+    </li>
+    <li class="inline-block">
+      <a href="#projects" class="group flex items-center py-2 active"
+        ><span
+          class="nav-indicator mr-4 h-1 w-8 border-t-2 border-dotted border-body group-hover:border-purple transition-all group-hover:w-16 group-focus-visible:w-16 motion-reduce:transition-none"
+        ></span>
+        <span
+          class="nav-text text-xs font-normal uppercase tracking-widest text-body group-hover:text-purple group-focus-visible:text-purple"
+          >Projects</span
+        ></a
+      >
+    </li>
+    <li class="inline-block">
+      <a href="#experience" class="group flex items-center py-2 active"
+        ><span
+          class="nav-indicator mr-4 h-1 w-8 border-t-2 border-dotted border-body group-hover:border-purple transition-all group-hover:w-16 group-focus-visible:w-16 motion-reduce:transition-none"
+        ></span>
+        <span
+          class="nav-text text-xs font-normal uppercase tracking-widest text-body group-hover:text-purple group-focus-visible:text-purple"
+          >Experience</span
+        ></a
+      >
+    </li>
+  </ul>
+</nav>
+
+<style>
+  .active {
+    width: 16em;
+    color: #facc14;
+  }
+</style>
+
+<script>
+  const navItem = document.querySelector("#nav-item");
+  const navLine = document.querySelector("#nav-line");
+  const navTitle = document.querySelector("#nav-title");
+
+  navItem?.addEventListener("click", () => {
+    navLine?.classList.add("active");
+    navTitle?.classList.add("active");
+  });
+</script>
