@@ -1,0 +1,33 @@
+---
+interface Props {
+  year?: number;
+  title: string;
+  description?: string;
+  company?: string;
+  image?: string;
+  link: string;
+  tech: string[];
+}
+
+const { year, title, company, link, tech } = Astro.props;
+---
+
+<tr class="border-b border-zinc-300 last:border-none">
+  <td class="py-4 pr-4 align-top text-sm">{year}</td>
+  <td class="py-4 pr-4 align-top font-semibold leading-snug text-slate-200"
+    >{title}</td
+  >
+  <td class="hidden py-4 pr-4 align-top text-sm lg:table-cell">{company}</td>
+  <td class="hidden py-4 pr-4 align-top lg:table-cell"
+    ><div class="flex flex-wrap gap-2">
+      {
+        tech.map((el) => (
+          <span class="bg-yellow-400 bg-opacity-60 px-3 py-1 mr-2 text-xs font-semibold uppercase tracking-wider text-black rounded-full">
+            {el}
+          </span>
+        ))
+      }
+    </div></td
+  >
+  <td class="hidden py-4 align-top sm:table-cell">{link}</td>
+</tr>
