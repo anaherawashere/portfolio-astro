@@ -1,19 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Intro from "../components/Home/Intro.astro";
-import About from "../components/Home/About.astro";
-import Projects from "../components/Home/Projects.astro";
-import SectionDivider from "../components/SectionDivider.astro";
+import Intro from "../components/Intro/Intro.astro";
+import About from "../components/About/About.astro";
+import Projects from "../components/Projects/Projects.astro";
+import Experience from "../components/Experience/Experience.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 ---
 
 <Layout title="Anahera Foley-Paama">
-  <div
-    class="relative z-20 w-full max-w-4xl mx-auto mt-16 px-7 md:mt-24 lg:mt-20 xl:px-0"
-  >
-    <Intro />
-    <SectionDivider />
-    <About />
-    <SectionDivider />
-    <Projects />
+  <div class="relative w-full max-w-3xl mx-auto py-16 lg:border-x border-dashed border-body border-opacity-15">
+    <Header />
+    <div class="flex flex-col gap-40">
+      <Intro />
+      <About />
+      <Projects />
+      <Experience />
+      <Footer />
+    </div>
   </div>
 </Layout>
