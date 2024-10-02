@@ -8,7 +8,7 @@ const allJobs = await Astro.glob("../../content/jobs/*.md");
 // const sortedJobs = allJobs.sort((a,b) => b - a)
 ---
 
-<div id="experience">
+<section id="experience" aria-label="Work experience">
   <SectionHeading>Experience</SectionHeading>
   <SectionSubheading
     >Here are some of my recent projects. I'm always working on something new,
@@ -28,4 +28,4 @@ const allJobs = await Astro.glob("../../content/jobs/*.md");
       ))
     }
   </div><ButtonCta title="View Full Résumé" href="/" />
-</div>
+</section>
