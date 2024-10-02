@@ -1,13 +1,16 @@
 ---
+import PillsTech from '../Pills/Pills_Tech.astro';
+
 interface Props {
   date: string;
   role: string;
   company: string;
   description: string;
   href: string;
+  tech?: string[]
 }
 
-const { date, role, company, description, href } = Astro.props;
+const { date, role, company, description, href, tech} = Astro.props;
 ---
 
 <a href={href} target="_blank"
@@ -25,9 +28,16 @@ const { date, role, company, description, href } = Astro.props;
           ><i aria-hidden="true" class="fa-solid fa-arrow-right -rotate-45 text-xs ease-in duration-100 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]"></i></span
         >
       </h3>
-      <p class="text-sm">
+      <p class="mb-4 text-sm">
         {description}
       </p>
+      <ul class="flex flex-wrap gap-2">
+        {
+          tech?.map((el) => (
+            <PillsTech>{el}</PillsTech>
+          ))
+        }
+      </ul>
     </div>
   </div></a
 >
