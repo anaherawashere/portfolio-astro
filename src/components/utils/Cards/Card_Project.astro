@@ -1,19 +1,21 @@
 ---
+import PillsTech from '../Pills/Pills_Tech.astro';
+
 interface Props {
   year?: number;
   title: string;
   description?: string;
   company?: string;
   image?: string;
-  link: string;
+  href: string;
   tech: string[];
 }
 
-const { title, description, image, link, tech } = Astro.props;
+const { title, description, image, href, tech } = Astro.props;
 ---
 
-<a href={link} target="_blank">
-  <div class="group flex flex-col-reverse lg:flex-row gap-x-6 py-5 lg:px-6 rounded-md ease-in duration-100 hover:bg-purple hover:bg-opacity-10">
+<a href={href} target="_blank">
+  <div class="group flex flex-col-reverse md:flex-row gap-x-6 py-5 lg:px-6 rounded-md ease-in duration-100 hover:bg-purple hover:bg-opacity-10">
     <div class="w-52 lg:w-1/4">
       <div class="shadow-xl overflow-hidden rounded-sm">
         <img src={image} alt={title} loading="lazy" />
@@ -31,9 +33,7 @@ const { title, description, image, link, tech } = Astro.props;
       <ul class="flex flex-wrap gap-2">
         {
           tech.map((el) => (
-            <li class="bg-purple bg-opacity-20 px-3 py-1 text-xs font-medium uppercase tracking-wider text-purple rounded-full">
-              {el}
-            </li>
+            <PillsTech>{el}</PillsTech>
           ))
         }
       </ul>
