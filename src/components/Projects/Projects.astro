@@ -7,13 +7,13 @@ import CardProject from "../utils/Cards/Card_Project.astro";
 const allProjects = await Astro.glob("../../content/projects/*.md");
 ---
 
-<div id="projects">
+<section id="projects" aria-label="Selected projects">
   <SectionHeading>Projects</SectionHeading>
   <SectionSubheading
     >Here are some of my recent projects. I'm always working on something new,
     so check back often!</SectionSubheading
   >
-  <div class="flex flex-col gap-y-3">
+  <ul class="flex flex-col gap-y-3">
     {
       allProjects.map(
         (project) =>
@@ -28,5 +28,5 @@ const allProjects = await Astro.glob("../../content/projects/*.md");
           ),
       )
     }
-  </div><ButtonCta title="View Full Project Archive" href="/archive" />
-</div>
+  </ul><ButtonCta title="View Full Project Archive" href="/archive" />
+</section>
