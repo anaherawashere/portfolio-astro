@@ -7,18 +7,18 @@ interface Props {
 const { href, ariaLabel } = Astro.props;
 ---
 
-<li class="group/link">
+<li class="group/related">
   <a
     href={href}
     target="_blank"
     rel="noreferrer noopener"
-    class="relative inline-flex items-center text-sm font-medium group-hover/link:text-purple group-focus-visible/link:text-purple"
+    class="relative inline-flex items-center text-sm font-medium group-hover/related:text-purple group-focus-visible/related:text-purple"
     aria-label={ariaLabel}
   >
     <span>
       <i
         aria-hidden="true"
-        class="fa-solid fa-link mr-[6px] -rotate-12 text-xs ease-in duration-100 group-hover/link:text-purple"
+        class="fa-solid fa-link mr-[6px] -rotate-12 text-xs ease-in duration-100 group-hover/related:text-purple"
       ></i>
     </span><span><slot /></span>
   </a>
