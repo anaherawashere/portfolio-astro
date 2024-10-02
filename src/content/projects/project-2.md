@@ -1,5 +1,5 @@
 ---
-year: 2024
+date: '2024-09-01'
 title: pawpals
 description: Connecting pets with local pet-friendly events.
 company: Dev Academy Aotearoa
