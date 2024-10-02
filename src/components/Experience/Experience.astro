@@ -23,6 +23,7 @@ const allJobs = await Astro.glob("../../content/jobs/*.md");
           company={job.frontmatter.company}
           description={job.frontmatter.description}
           href={job.frontmatter.href}
+          tech={job.frontmatter.tech}
         />
       ))
     }
