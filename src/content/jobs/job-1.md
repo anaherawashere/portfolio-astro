@@ -2,7 +2,7 @@
 date: Jun 2024 - Oct 2024
 role: Graduate
 company: Dev Academy Aotearoa
-description: This full immersion web development boot camp covered a modern web dev stack, including Typescript, React, Node.js, Express, and Back and Frontend testing. I built web applications through hands-on challenges both individually and with partners. In weekly projects simulating a real-life development team, we learned how to plan, structure and develop an application as a group. The course's Human Skills component challenged me to explore different communication styles, exchange feedback, and address difficult interpersonal situations.
+description: Built full stack web apps in solo and group projects using Agile methodologies. Worked on planning, development, deployment, and version control with Git. Participated in regular stand-ups, retrospectives, and code reviews. Further developed communication skills through active listening, feedback, and managing difficult conversations.
 href: https://devacademy.co.nz/course-details/
-tech: [typescript, javascript, react, node.js, express, sqlite, superagent, supertest, vitest, git]
+tech: [typescript, javascript, react, node.js, express, sqlite, superagent, supertest, vitest, git, tailwind, html, css, figma]
 ---
