@@ -2,31 +2,34 @@
 import ProjectRow from "./ProjectRow.astro";
 
 const allProjects = await Astro.glob("../../content/projects/*.md");
+console.log(allProjects);
+
 ---
 
-<div>
-  <table class="w-full">
+<div class="lg:px-6">
+  <table class="mt-12 w-full border-collapse text-left">
     <thead
       class="sticky top-0 z-10 border-b border-zinc-300 px-6 py-5 backdrop-blur"
     >
       <tr>
-        <th class="py-4 pr-8 text-sm font-semibold text-zinc-900">Year</th>
-        <th class="py-4 pr-8 text-sm font-semibold text-zinc-900">Project</th>
-        <th class="hidden py-4 pr-8 text-sm font-semibold text-zinc-900">Made at</th>
-        <th class="hidden py-4 pr-8 text-sm font-semibold text-zinc-900">Built with</th
+        <th class="py-4 pr-8 text-sm font-semibold text-heading">Year</th>
+        <th class="py-4 pr-8 text-sm font-semibold text-heading">Project</th>
+        <th class="hidden lg:table-cell py-4 pr-8 text-sm font-semibold text-heading">Made at</th>
+        <th class="hidden lg:table-cell py-4 pr-8 text-sm font-semibold text-heading">Built with</th
         >
-        <th class="hidden py-4 pr-8 text-sm font-semibold text-zinc-900">Link</th>
+        <th class="hidden sm:table-cell py-4 pr-8 text-sm font-semibold text-heading">Link</th>
       </tr>
     </thead>
     <tbody>
       {
-        allProjects.map((project) => (
+        allProjects.sort((a, b) => b.frontmatter.date - a.frontmatter.date).map((project) => (
           <ProjectRow
-            year={project.frontmatter.year}
+            date={project.frontmatter.date}
             title={project.frontmatter.title}
             company={project.frontmatter.company}
             tech={project.frontmatter.tech}
-            link={project.frontmatter.link}
+            href={project.frontmatter.href}
+            hrefPreview={project.frontmatter.hrefPreview}
           />
         ))
       }
