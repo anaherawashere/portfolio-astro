@@ -36,6 +36,7 @@ export default {
       },
       colors: {
         purple: "#574EBA",
+        'purple-200': "#D4D2EE",
         heading: "#0B2540",
         body: "#425466",
         lighter: "#AAB4C1",
