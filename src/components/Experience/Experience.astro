@@ -1,11 +1,10 @@
 ---
 import SectionHeading from "../SectionHeading.astro";
 import SectionSubheading from "../SectionSubheading.astro";
-import ButtonCta from "../utils/Buttons/Button_Cta.astro";
+import ButtonExternal from "../utils/Buttons/Button_External.astro";
 import CardExperience from "../utils/Cards/Card_Experience.astro";
 
 const allJobs = await Astro.glob("../../content/jobs/*.md");
-// const sortedJobs = allJobs.sort((a,b) => b - a)
 ---
 
 <section id="experience" aria-label="Work experience">
@@ -27,5 +26,5 @@ const allJobs = await Astro.glob("../../content/jobs/*.md");
         />
       ))
     }
-  </div><ButtonCta title="View Full Résumé" href="/" />
+  </div><ButtonExternal title="View Full Résumé" href="AnaheraFoleyPaama_CV.pdf" ariaLabel="View full resume (opens in a new tab)"/>
 </section>
