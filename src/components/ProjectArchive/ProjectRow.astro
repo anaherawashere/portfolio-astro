@@ -13,13 +13,10 @@ interface Props {
 }
 
 const { date, title, company, href, hrefPreview, tech } = Astro.props;
-const prettyDate = new Date(date).toLocaleDateString();
-console.log(typeof date);
-
 ---
 
 <tr class="border-b border-zinc-300 last:border-none">
-  <td class="py-4 pr-4 align-top text-sm">{prettyDate}</td>
+  <td class="py-4 pr-4 align-top text-sm">{date}</td>
   <td class="py-4 pr-4 align-top font-medium leading-snug text-heading"
     >
     <div class="hidden sm:block">{title}</div>
