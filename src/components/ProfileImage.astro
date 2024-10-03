@@ -1,7 +1,17 @@
+---
+interface Props {
+  size: string
+}
+
+const { size } = Astro.props
+---
+
 <div class="relative">
-  <div
-    class="overflow-hidden p-3 w-28 h-28 rounded-full border-2 "
-  >
-      <img src="/images/anahera.jpeg" alt="Anahera" class="min-w-44 relative -top-8 -inset-11" />
+  <div class={`overflow-hidden w-${size} h-${size} rounded-full border-2`}>
+    <img
+      src="/images/anahera.jpeg"
+      alt="Anahera"
+      class="object-cover"
+    />
   </div>
 </div>
