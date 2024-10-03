@@ -31,7 +31,7 @@ const { title, description, image, href, tech } = Astro.props
     <h3 class="mb-2 text-lg font-semibold text-heading group-hover:text-purple ease-in duration-100">
       <a href={href[0]} target="_blank" rel="noreferrer noopener" aria-label={`Visit ${title} (open in a new tab)`} class="flex gap-x-[6px]">
         {title}
-        <span class="group/link absolute w-full h-full top-0 left-0 rounded-md ease-in duration-100 group-hover:bg-purple group-hover:bg-opacity-10">
+        <span class="group/link absolute w-[110%] lg:w-full h-full top-0 -inset-x-4 lg:left-0 rounded-md ease-in duration-100 group-hover:bg-purple group-hover:bg-opacity-10">
         </span>
         <span>
           <i aria-hidden="true" class="fa-solid fa-arrow-right -rotate-45 text-xs ease-in duration-100 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]"></i>
