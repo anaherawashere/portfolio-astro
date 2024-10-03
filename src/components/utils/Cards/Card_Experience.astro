@@ -15,16 +15,19 @@ const { date, role, company, description, href, tech} = Astro.props;
 
 <a href={href} target="_blank"
   ><div
-    class="group flex flex-col lg:flex-row gap-x-5 py-5 lg:px-6 rounded-md ease-in duration-100 hover:bg-purple hover:bg-opacity-10"
+    class="group flex flex-col lg:flex-row gap-x-5 py-5 lg:px-6 relative rounded-md"
   >
     <div class="lg:w-1/5">
-      <p class="text-xs uppercase mb-2 lg:mt-2">{date}</p>
+      <p class="text-xs uppercase mb-2 lg:mt-2 tracking-wide">{date}</p>
     </div>
     <div class="lg:w-4/5">
       <h3
         class="mb-2 flex gap-x-[6px] text-lg font-semibold text-heading group-hover:text-purple ease-in duration-100"
       >
-        {role} · {company}<span
+        {role} · {company}
+        <span class="group/link absolute w-[110%] lg:w-full h-full top-0 -inset-x-4 lg:left-0 rounded-md ease-in duration-100 group-hover:bg-purple group-hover:bg-opacity-10">
+        </span>
+        <span
           ><i aria-hidden="true" class="fa-solid fa-arrow-right -rotate-45 text-xs ease-in duration-100 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]"></i></span
         >
       </h3>
