@@ -15,31 +15,33 @@ const prettyDate = formatDate(date)
   </td>
   <td class="pb-2 lg:py-4 lg:pr-4 align-top text-sm">{description}</td
   >
-  <td class="pb-2 lg:py-4 lg:pr-4 align-top text-sm"
+  <td class="pb-4 lg:py-4 lg:pr-4 align-top text-sm"
     ><ul class="flex flex-wrap gap-2">
       {tech.map((el) => <PillsTech>{el}</PillsTech>)}
     </ul></td
   >
-  <td class="lg:py-4 align-top text-sm font-medium">
+  <td class="flex gap-x-6 lg:py-4 align-top text-sm font-medium">
     {
       href[0] !== '' && (
-        <a href={href[0]} target="_blank" class="hover:text-purple">
+        <a href={href[0]} target="_blank" class="text-lg hover:text-purple">
+          <span class="inline-block lg:hidden">Link </span>
           <span>
             <i
               aria-hidden="true"
-              class="fa-solid fa-arrow-up-right-from-square align-bottom text-lg ease-in duration-100 pl-[6px] hover:text-purple"
+              class="fa-solid fa-arrow-up-right-from-square lg:align-bottom ease-in duration-100 hover:text-purple"
             />
           </span>
         </a>
       )
     }
     {
-      href[1] !== '' && (
-        <a href={href[1]} target="_blank" class="hover:text-purple">
+      href[1] && (
+        <a href={href[1]} target="_blank" class="hover:text-purple text-lg">
+          <span class="inline-block lg:hidden">Github </span>
           <span>
             <i
               aria-hidden="true"
-              class="fa-brands fa-github align-bottom text-lg ease-in duration-100 pl-[6px] hover:text-purple"
+              class="fa-brands fa-github lg:align-bottom ease-in duration-100 hover:text-purple"
             />
           </span>
         </a>
