@@ -15,8 +15,8 @@ const { date, role, company, description, href, tech } = Astro.props;
 
 <li class="group relative flex flex-col md:flex-row gap-x-6 py-5 lg:px-6 rounded-md z-10">
   <div class="-z-10 absolute w-[110%] lg:w-full h-full top-0 -inset-x-4 lg:left-0 rounded-md ease-in duration-100 group-hover:bg-purple group-hover:bg-opacity-10"></div>
-  <div class="w-full lg:w-1/5"><p class="text-xs uppercase mb-2 lg:mt-2 tracking-wide">{date}</p></div>
-  <div class="w-full lg:w-4/5">
+  <div class="w-full md:w-1/5"><p class="text-xs uppercase mb-2 lg:mt-2 tracking-wide">{date}</p></div>
+  <div class="w-full md:w-4/5">
     <h3 class="mb-2 text-lg font-semibold text-heading group-hover:text-purple ease-in duration-100">
       <a href={href}
       target="_blank"
