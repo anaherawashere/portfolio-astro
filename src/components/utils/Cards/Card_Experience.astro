@@ -1,21 +1,16 @@
 ---
+import type { JobProps } from "../../../types/interfaces";
+import { formatDate } from "../../../utils/datePretty";
 import PillsTech from "../Pills/Pills_Tech.astro";
 
-interface Props {
-  date: string;
-  role: string;
-  company: string;
-  description: string;
-  href: string;
-  tech?: string[];
-}
-
-const { date, role, company, description, href, tech } = Astro.props;
+const { startDate, endDate, role, company, description, href, tech } = Astro.props as JobProps
+const prettyStartDate = formatDate(startDate)
+const prettyEndDate = formatDate(endDate)
 ---
 
 <li class="group relative flex flex-col md:flex-row gap-x-6 py-5 lg:px-6 rounded-md z-10">
   <div class="-z-10 absolute w-[110%] lg:w-full h-full top-0 -inset-x-4 lg:left-0 rounded-md ease-in duration-100 group-hover:bg-purple group-hover:bg-opacity-10"></div>
-  <div class="w-full md:w-1/5"><p class="text-xs uppercase mb-2 lg:mt-2 tracking-wide">{date}</p></div>
+  <div class="w-full md:w-1/5"><p class="text-xs uppercase mb-2 lg:mt-2 tracking-wide">{prettyStartDate} - {prettyEndDate}</p></div>
   <div class="w-full md:w-4/5">
     <h3 class="mb-2 text-lg font-semibold text-heading group-hover:text-purple ease-in duration-100">
       <a href={href}
