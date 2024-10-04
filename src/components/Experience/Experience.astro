@@ -1,10 +1,13 @@
 ---
+import type { Job } from "../../types/interfaces";
+import { sortJobs } from "../../utils/dateSort";
 import SectionHeading from "../SectionHeading.astro";
 import SectionSubheading from "../SectionSubheading.astro";
 import ButtonExternal from "../utils/Buttons/Button_External.astro";
 import CardExperience from "../utils/Cards/Card_Experience.astro";
 
-const allJobs = await Astro.glob("../../content/jobs/*.md");
+const allJobs: Job[] = await Astro.glob("../../content/jobs/*.md");
+const sortedJobs = sortJobs(allJobs)
 ---
 
 <section id="experience" aria-label="Work experience">
@@ -16,7 +19,8 @@ const allJobs = await Astro.glob("../../content/jobs/*.md");
     {
       allJobs.map((job) => (
         <CardExperience
-          date={job.frontmatter.date}
+          startDate={job.frontmatter.startDate}
+          endDate={job.frontmatter.endDate}
           role={job.frontmatter.role}
           company={job.frontmatter.company}
           description={job.frontmatter.description}
