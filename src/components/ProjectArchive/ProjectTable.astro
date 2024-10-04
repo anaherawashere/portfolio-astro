@@ -1,38 +1,37 @@
 ---
+import type { Project } from "../../types/interfaces";
+import {sortProjects} from "../../utils/dateSort";
 import ProjectRow from "./ProjectRow.astro";
 
-const allProjects = await Astro.glob("../../content/projects/*.md");
-console.log(allProjects);
-
+const allProjects: Project[] = await Astro.glob("../../content/projects/*.md");
+const sortedProjects = sortProjects(allProjects)
 ---
 
 <div class="lg:px-6">
-  <table class="mt-12 w-full border-collapse text-left">
+  <table class="mt-0 lg:mt-12 w-full border-collapse text-left">
     <thead
-      class="sticky top-0 z-10 border-b border-zinc-300 px-6 py-5 backdrop-blur"
-    >
+      class="hidden lg:table-header-group sticky top-0 z-10 border-b border-zinc-300 px-6 py-5 backdrop-blur">
       <tr>
-        <th class="py-4 pr-8 text-sm font-semibold text-heading">Year</th>
-        <th class="py-4 pr-8 text-sm font-semibold text-heading">Project</th>
-        <th class="hidden lg:table-cell py-4 pr-8 text-sm font-semibold text-heading">Made at</th>
-        <th class="hidden lg:table-cell py-4 pr-8 text-sm font-semibold text-heading">Built with</th
-        >
-        <th class="hidden sm:table-cell py-4 pr-8 text-sm font-semibold text-heading">Link</th>
+        <th class="lg:w-1/12 py-4 pr-8 text-sm font-semibold text-heading">Year</th>
+        <th class="lg:w-2/12 py-4 pr-8 text-sm font-semibold text-heading">Project</th>
+        <th class="lg:w-5/12 py-4 pr-8 text-sm font-semibold text-heading">Description</th>
+        <th class="py-4 pr-8 text-sm font-semibold text-heading">Built with</th>
+        <th class="py-4 pr-8 text-sm font-semibold text-heading">Link</th>
       </tr>
     </thead>
     <tbody>
       {
-        allProjects.sort((a, b) => b.frontmatter.date - a.frontmatter.date).map((project) => (
-          <ProjectRow
-            date={project.frontmatter.date}
-            title={project.frontmatter.title}
-            company={project.frontmatter.company}
-            tech={project.frontmatter.tech}
-            href={project.frontmatter.href}
-            hrefPreview={project.frontmatter.hrefPreview}
-          />
-        ))
-      }
+        sortedProjects.map((project) => (
+            <ProjectRow
+              date={project.frontmatter.date}
+              title={project.frontmatter.title}
+              description={project.frontmatter.description}
+              company={project.frontmatter.company}
+              tech={project.frontmatter.tech}
+              href={project.frontmatter.href}
+            />
+          ))
+      }      
     </tbody>
   </table>
 </div>
