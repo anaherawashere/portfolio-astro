@@ -16,28 +16,29 @@ const { title, description, image, href, tech } = Astro.props
 ---
 
 <li
-  class="group relative flex flex-col-reverse md:flex-row gap-x-6 py-5 lg:px-6 rounded-md">
-  <div class="w-52 lg:w-1/4">
-    <div class="shadow-xl overflow-hidden rounded-sm">
-      <img
-        src={image}
-        alt={title}
-        loading="lazy"
-        class="object-cover w-full h-full"
-      />
-    </div>
-  </div>
+  class="group relative flex flex-col md:flex-row-reverse gap-x-6 py-5 lg:px-6 rounded-md z-10">
+  <div class="-z-10 absolute w-[110%] lg:w-full h-full top-0 -inset-x-4 lg:left-0 rounded-md ease-in duration-100 group-hover:bg-purple group-hover:bg-opacity-10"></div>
   <div class="w-full lg:w-3/4 xs:mb-3">
-    <h3 class="mb-2 text-lg font-semibold text-heading group-hover:text-purple ease-in duration-100">
-      <a href={href[0]} target="_blank" rel="noreferrer noopener" aria-label={`Visit ${title} (open in a new tab)`} class="flex gap-x-[6px]">
+    <h3
+      class="mb-2 text-lg font-semibold text-heading group-hover:text-purple ease-in duration-100">
+      <a
+        href={href[0]}
+        target="_blank"
+        rel="noreferrer noopener"
+        aria-label={`Visit ${title} (open in a new tab)`}
+        >
         {title}
-        <span class="group/link absolute w-[110%] lg:w-full h-full top-0 -inset-x-4 lg:left-0 rounded-md ease-in duration-100 group-hover:bg-purple group-hover:bg-opacity-10">
+        <span
+          class="group/link absolute w-[110%] lg:w-full h-full top-0 -inset-x-4 lg:left-0 rounded-md">
         </span>
-        <span>
-          <i aria-hidden="true" class="fa-solid fa-arrow-right -rotate-45 text-xs ease-in duration-100 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]"></i>
+        <span class="pl-1">
+          <i
+            aria-hidden="true"
+            class="fa-solid fa-arrow-right -rotate-45 text-xs ease-in duration-100 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]"
+          ></i>
         </span>
       </a>
-    </h3>    
+    </h3>
     <p class="mb-2 text-sm">
       {description}
     </p>
@@ -51,7 +52,9 @@ const { title, description, image, href, tech } = Astro.props
               Github
             </ButtonExternalXS>
 
-            <ButtonExternalXS href={href[2]} aria-label="Visit Personal Project GitHub Repository">
+            <ButtonExternalXS
+              href={href[2]}
+              aria-label="Visit Personal Project GitHub Repository">
               Personal Project Github
             </ButtonExternalXS>
           </>
@@ -59,11 +62,15 @@ const { title, description, image, href, tech } = Astro.props
       }
     </ul>
     <ul class="flex flex-wrap gap-2" aria-label="Technologies used">
-      {
-        tech.map((el) => (
-            <PillsTech>{el}</PillsTech>
-        ))
-      }
+      {tech.map((el) => <PillsTech>{el}</PillsTech>)}
     </ul>
+  </div>
+  <div class="w-52 h-fit lg:w-1/4 shadow-xl overflow-hidden rounded-sm">
+    <img
+      src={image}
+      alt={title}
+      loading="lazy"
+      class="object-contain w-full h-full"
+    />
   </div>
 </li>
