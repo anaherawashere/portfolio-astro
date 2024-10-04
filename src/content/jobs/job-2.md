@@ -1,5 +1,5 @@
 ---
-startDate: 2024-12-08
+startDate: 2023-12-08
 endDate: 2024-05-30
 role: Digital Fundraising Strategist
 company: Donor Republic
