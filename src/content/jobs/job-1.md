@@ -1,5 +1,6 @@
 ---
-date: Jun 2024 - Oct 2024
+startDate: 2024-06-01
+endDate: 2024-10-04
 role: Graduate
 company: Dev Academy Aotearoa
 description: Built full stack web apps in solo and group projects using Agile methodologies. Worked on planning, development, deployment, and version control with Git. Participated in regular stand-ups, retrospectives, and code reviews. Further developed communication skills through active listening, feedback, and managing difficult conversations.
