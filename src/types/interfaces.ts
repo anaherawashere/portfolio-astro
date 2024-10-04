@@ -10,6 +10,8 @@ export interface ProjectProps {
 }
 
 export interface JobProps {
+  startDate: string;
+  endDate: string;
   role: string;
   company: string;
   description: string;
