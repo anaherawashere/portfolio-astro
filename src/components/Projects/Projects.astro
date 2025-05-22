@@ -1,10 +1,10 @@
 ---
-import SectionHeading from "../SectionHeading.astro";
-import SectionSubheading from "../SectionSubheading.astro";
-import ButtonCta from "../utils/Buttons/Button_Cta.astro";
-import CardProject from "../utils/Cards/Card_Project.astro";
+import SectionHeading from '../SectionHeading.astro'
+import SectionSubheading from '../SectionSubheading.astro'
+import ButtonCta from '../utils/Buttons/Button_Cta.astro'
+import CardProject from '../utils/Cards/Card_Project.astro'
 
-const allProjects = await Astro.glob("../../content/projects/*.md");
+const allProjects = await Astro.glob('../../content/projects/*.md')
 ---
 
 <section id="projects" aria-label="Selected projects">
@@ -19,13 +19,14 @@ const allProjects = await Astro.glob("../../content/projects/*.md");
         (project) =>
           project.frontmatter.selected && (
             <CardProject
-              title={project.frontmatter.title}
               description={project.frontmatter.description}
-              image={project.frontmatter.image}
               href={project.frontmatter.href}
+              image={project.frontmatter.image}
+              links={project.frontmatter.links}
               tech={project.frontmatter.tech}
+              title={project.frontmatter.title}
             />
-          ),
+          )
       )
     }
   </ul><ButtonCta title="View Full Project Archive" href="/archive" />

@@ -1,10 +1,11 @@
 ---
 interface Props {
-  href: string;
   ariaLabel?: string
+  href: string
+  name: string
 }
 
-const { href, ariaLabel } = Astro.props;
+const { ariaLabel, href, name } = Astro.props
 ---
 
 <li class="group/related">
@@ -13,13 +14,12 @@ const { href, ariaLabel } = Astro.props;
     target="_blank"
     rel="noreferrer noopener"
     class="relative inline-flex items-center text-sm font-medium group-hover/related:text-purple group-focus-visible/related:text-purple"
-    aria-label={ariaLabel}
-  >
+    aria-label={ariaLabel}>
     <span>
       <i
         aria-hidden="true"
         class="fa-solid fa-link mr-[6px] -rotate-12 text-xs ease-in duration-100 group-hover/related:text-purple"
       ></i>
-    </span><span><slot /></span>
+    </span><span>{name}</span>
   </a>
 </li>
