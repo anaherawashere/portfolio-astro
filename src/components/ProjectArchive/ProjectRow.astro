@@ -2,50 +2,40 @@
 import { formatDate } from '../../utils/datePretty.ts'
 import PillsTech from '../utils/Pills/Pills_Tech.astro'
 import type { ProjectProps } from '../../types/interfaces'
+import ButtonExternalXS from '../utils/Buttons/Button_ExternalXS.astro'
 
-const { date, title, description, href, tech } =
+const { date, description, links, tech, title } =
   Astro.props as ProjectProps
 const prettyDate = formatDate(date)
 ---
 
-<tr class="flex flex-col lg:table-row py-6 lg:border-b lg:border-zinc-300 last:border-none">
+<tr
+  class="flex flex-col lg:table-row py-6 lg:border-b lg:border-zinc-300 last:border-none">
   <td class="pb-2 lg:py-4 lg:pr-4 align-top text-sm">{prettyDate}</td>
-  <td class="pb-2 lg:py-4 lg:pr-4 align-top font-medium leading-snug text-heading">
+  <td
+    class="pb-2 lg:py-4 lg:pr-4 align-top font-medium leading-snug text-heading">
     <div class="text-lg">{title}</div>
   </td>
-  <td class="pb-2 lg:py-4 lg:pr-4 align-top text-sm">{description}</td
-  >
+  <td class="pb-2 lg:py-4 lg:pr-4 align-top text-sm">{description}</td>
   <td class="pb-4 lg:py-4 lg:pr-4 align-top text-sm"
     ><ul class="flex flex-wrap gap-2">
       {tech.map((el) => <PillsTech>{el}</PillsTech>)}
     </ul></td
   >
   <td class="flex gap-x-6 lg:py-4 align-top text-sm font-medium">
-    {
-      href[0] !== '' && (
-        <a href={href[0]} target="_blank" class="text-lg hover:text-purple">
-          <span class="inline-block lg:hidden">Link </span>
-          <span>
-            <i
-              aria-hidden="true"
-              class="fa-solid fa-arrow-up-right-from-square lg:align-bottom ease-in duration-100 hover:text-purple"
-            />
-          </span>
-        </a>
-      )
-    }
-    {
-      href[1] && (
-        <a href={href[1]} target="_blank" class="hover:text-purple text-lg">
-          <span class="inline-block lg:hidden">Github </span>
-          <span>
-            <i
-              aria-hidden="true"
-              class="fa-brands fa-github lg:align-bottom ease-in duration-100 hover:text-purple"
-            />
-          </span>
-        </a>
-      )
-    }
+    <ul class="flex flex-wrap gap-3">
+      {
+        links.length > 1 &&
+          links.map((link) => {
+            return (
+              <ButtonExternalXS
+                ariaLabel={link.name}
+                href={link.href}
+                name={link.name}
+              />
+            )
+          })
+      }
+    </ul>
   </td>
 </tr>

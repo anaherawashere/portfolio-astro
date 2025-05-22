@@ -1,9 +1,9 @@
 ---
-import type { Project } from "../../types/interfaces";
-import {sortProjects} from "../../utils/dateSort";
-import ProjectRow from "./ProjectRow.astro";
+import type { Project } from '../../types/interfaces'
+import { sortProjects } from '../../utils/dateSort'
+import ProjectRow from './ProjectRow.astro'
 
-const allProjects: Project[] = await Astro.glob("../../content/projects/*.md");
+const allProjects: Project[] = await Astro.glob('../../content/projects/*.md')
 const sortedProjects = sortProjects(allProjects)
 ---
 
@@ -12,9 +12,15 @@ const sortedProjects = sortProjects(allProjects)
     <thead
       class="hidden lg:table-header-group sticky top-0 z-10 border-b border-zinc-300 px-6 py-5 backdrop-blur">
       <tr>
-        <th class="lg:w-1/12 py-4 pr-8 text-sm font-semibold text-heading">Year</th>
-        <th class="lg:w-2/12 py-4 pr-8 text-sm font-semibold text-heading">Project</th>
-        <th class="lg:w-5/12 py-4 pr-8 text-sm font-semibold text-heading">Description</th>
+        <th class="lg:w-1/12 py-4 pr-8 text-sm font-semibold text-heading"
+          >Year</th
+        >
+        <th class="lg:w-2/12 py-4 pr-8 text-sm font-semibold text-heading"
+          >Project</th
+        >
+        <th class="lg:w-5/12 py-4 pr-8 text-sm font-semibold text-heading"
+          >Description</th
+        >
         <th class="py-4 pr-8 text-sm font-semibold text-heading">Built with</th>
         <th class="py-4 pr-8 text-sm font-semibold text-heading">Link</th>
       </tr>
@@ -22,16 +28,17 @@ const sortedProjects = sortProjects(allProjects)
     <tbody>
       {
         sortedProjects.map((project) => (
-            <ProjectRow
-              date={project.frontmatter.date}
-              title={project.frontmatter.title}
-              description={project.frontmatter.description}
-              company={project.frontmatter.company}
-              tech={project.frontmatter.tech}
-              href={project.frontmatter.href}
-            />
-          ))
-      }      
+          <ProjectRow
+            date={project.frontmatter.date}
+            title={project.frontmatter.title}
+            description={project.frontmatter.description}
+            company={project.frontmatter.company}
+            tech={project.frontmatter.tech}
+            href={project.frontmatter.href}
+            links={project.frontmatter.links}
+          />
+        ))
+      }
     </tbody>
   </table>
 </div>
