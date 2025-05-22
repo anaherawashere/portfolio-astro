@@ -1,23 +1,39 @@
 ---
-import type { JobProps } from "../../../types/interfaces";
-import { formatDate } from "../../../utils/datePretty";
-import PillsTech from "../Pills/Pills_Tech.astro";
+import type { JobProps } from '../../../types/interfaces'
+import { formatDate } from '../../../utils/datePretty'
+import PillsTech from '../Pills/Pills_Tech.astro'
 
-const { startDate, endDate, role, company, description, href, tech } = Astro.props as JobProps
-const prettyStartDate = formatDate(startDate)
-const prettyEndDate = formatDate(endDate)
+const { startDate, endDate, role, company, description, href, tech } =
+  Astro.props as JobProps
+
+const isDateString = (value: string): boolean => {
+  return /[0-9]{4}-[0-9]{2}-[0-9]{2}/i.test(value)
+}
+
+const prettyStartDate = isDateString(startDate)
+  ? formatDate(startDate)
+  : startDate
+const prettyEndDate = isDateString(endDate) ? formatDate(endDate) : endDate
 ---
 
-<li class="group relative flex flex-col md:flex-row gap-x-6 py-5 lg:px-6 rounded-md z-10">
-  <div class="-z-10 absolute w-[110%] lg:w-full h-full top-0 -inset-x-4 lg:left-0 rounded-md ease-in duration-100 group-hover:bg-purple group-hover:bg-opacity-10"></div>
-  <div class="w-full md:w-1/5"><p class="text-xs uppercase mb-2 lg:mt-2 tracking-wide">{prettyStartDate} - {prettyEndDate}</p></div>
+<li
+  class="group relative flex flex-col md:flex-row gap-x-6 py-5 lg:px-6 rounded-md z-10">
+  <div
+    class="-z-10 absolute w-[110%] lg:w-full h-full top-0 -inset-x-4 lg:left-0 rounded-md ease-in duration-100 group-hover:bg-purple group-hover:bg-opacity-10">
+  </div>
+  <div class="w-full md:w-1/5">
+    <p class="text-xs uppercase mb-2 lg:mt-2 tracking-wide">
+      {prettyStartDate} - {prettyEndDate}
+    </p>
+  </div>
   <div class="w-full md:w-4/5">
-    <h3 class="mb-2 text-lg font-semibold text-heading group-hover:text-purple ease-in duration-100">
-      <a href={href}
-      target="_blank"
-      rel="noreferrer noopener"
-      aria-label={`Visit ${company} (open in a new tab)`}
-      >
+    <h3
+      class="mb-2 text-lg font-semibold text-heading group-hover:text-purple ease-in duration-100">
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer noopener"
+        aria-label={`Visit ${company} (open in a new tab)`}>
         {role} · {company}
         <span
           class="group/link absolute w-[110%] lg:w-full h-full top-0 -inset-x-4 lg:left-0 rounded-md">

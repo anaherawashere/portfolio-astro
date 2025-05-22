@@ -1,33 +1,40 @@
 ---
-import type { Job } from "../../types/interfaces";
-import { sortJobs } from "../../utils/dateSort";
-import SectionHeading from "../SectionHeading.astro";
-import SectionSubheading from "../SectionSubheading.astro";
-import ButtonExternal from "../utils/Buttons/Button_External.astro";
-import CardExperience from "../utils/Cards/Card_Experience.astro";
+import type { Job } from '../../types/interfaces'
+import { sortJobs } from '../../utils/dateSort'
+import SectionHeading from '../SectionHeading.astro'
+import SectionSubheading from '../SectionSubheading.astro'
+import ButtonExternal from '../utils/Buttons/Button_External.astro'
+import CardExperience from '../utils/Cards/Card_Experience.astro'
 
-const allJobs: Job[] = await Astro.glob("../../content/jobs/*.md");
+const allJobs: Job[] = await Astro.glob('../../content/jobs/*.md')
 const sortedJobs = sortJobs(allJobs)
 ---
 
 <section id="experience" aria-label="Work experience">
   <SectionHeading>Experience</SectionHeading>
   <SectionSubheading
-    >After years of strategy and creative solutions in the non-profit space, I recently made the leap into full stack web development.</SectionSubheading
+    >After years of strategy and creative solutions in the non-profit space, I
+    recently made the leap into full stack web development.</SectionSubheading
   >
   <div class="flex flex-col gap-y-3">
     {
-      allJobs.map((job) => (
-        <CardExperience
-          startDate={job.frontmatter.startDate}
-          endDate={job.frontmatter.endDate}
-          role={job.frontmatter.role}
-          company={job.frontmatter.company}
-          description={job.frontmatter.description}
-          href={job.frontmatter.href}
-          tech={job.frontmatter.tech}
-        />
-      ))
+      sortedJobs
+        .slice(0, 4)
+        .map((job) => (
+          <CardExperience
+            startDate={job.frontmatter.startDate}
+            endDate={job.frontmatter.endDate}
+            role={job.frontmatter.role}
+            company={job.frontmatter.company}
+            description={job.frontmatter.description}
+            href={job.frontmatter.href}
+            tech={job.frontmatter.tech}
+          />
+        ))
     }
-  </div><ButtonExternal title="View Full Résumé" href="AnaheraFoleyPaama_CV.pdf" ariaLabel="View full resume (opens in a new tab)"/>
+  </div><ButtonExternal
+    title="View Full Résumé"
+    href="AnaheraFoleyPaama_CV.pdf"
+    ariaLabel="View full resume (opens in a new tab)"
+  />
 </section>
